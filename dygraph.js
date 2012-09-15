@@ -262,6 +262,8 @@ Dygraph.DEFAULT_ATTRS = {
   axisLabelWidth: 50,
   drawYGrid: true,
   drawXGrid: true,
+  fillGrid: false,
+  fillGridColor: "rgb(255,255,255)",
   gridLineColor: "rgb(128,128,128)",
 
   interactionModel: null,  // will be set to Dygraph.Interaction.defaultModel

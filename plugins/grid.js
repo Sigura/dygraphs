@@ -43,11 +43,18 @@ grid.prototype.willDrawChart = function(e) {
   var ctx = e.drawingContext;
   var layout = g.layout_;
   var area = e.dygraph.plotter_.area;
+  var x, y, i, ticks;
 
   function halfUp(x)  { return Math.round(x) + 0.5; }
   function halfDown(y){ return Math.round(y) - 0.5; }
 
-  var x, y, i, ticks;
+  if(g.getOption('fillGrid')){
+    ctx.save();
+    ctx.fillStyle = g.getOption('fillGridColor');
+    ctx.fillRect(area.x, area.y, area.x + area.w, area.y + area.h);
+    ctx.restore();
+  }
+  
   if (g.getOption('drawYGrid')) {
     ticks = layout.yticks;
     ctx.save();
